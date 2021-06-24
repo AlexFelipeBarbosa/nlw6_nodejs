@@ -22,8 +22,10 @@ Repositório criado para a semana NLW6 da Rocketseat - Trilha Node.js
 
 - Cadastro de Elogios
 
-[ ] Não é permitido um usuário cadastrar um elogio pra si
+[x] Não é permitido um usuário cadastrar um elogio pra si
 
-[ ] Não é permitido cadastrar elogios para usuários inválidos
+[x] Não é permitido cadastro o mesmo elogio duas vezes para o mesmo usuario
 
-[ ] O usuário precisa estar autenticado na aplicação
+[x] Não é permitido cadastrar elogios para usuários inválidos
+
+[x] O usuário precisa estar autenticado na aplicação
