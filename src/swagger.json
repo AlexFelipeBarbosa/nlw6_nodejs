@@ -1,0 +1,12 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Alex Felipe Barbosa - NLW6",
+    "description": "API criado na trilha de Node da Rocketseat - NLW6",
+    "version": "1.0.0",
+    "contact": {
+      "email": "alex@alexbarbosa.info",
+      "site": "www.alexbarbosa.info"
+    }
+  }
+}
