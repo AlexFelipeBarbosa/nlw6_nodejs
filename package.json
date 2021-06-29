@@ -1,9 +1,12 @@
 {
   "name": "nlw6",
   "version": "1.0.0",
+  "engines": {
+    "yarn": "1.22.10"
+  },
   "main": "index.js",
   "repository": "https://github.com/AlexFelipeBarbosa/nlw6_nodejs.git",
-  "author": "Alex Barbosa <alexfelipebarbosa@yahoo.com.br>",
+  "author": "Alex Felipe Barbosa <alexfelipebarbosa@yahoo.com.br>",
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev src/server.ts",
