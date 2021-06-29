@@ -3,6 +3,12 @@ module.exports = {
   url: process.env.DATABASE_URL,
   migrations: ["dist/database/migrations/*.js"],
   entities: ["dist/entities/*.js"],
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
   cli: {
     migrationsDir: "src/database/migrations",
     entitiesDir: "src/entities",
