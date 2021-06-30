@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/index", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(router);
 
