@@ -1,12 +1,243 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Alex Felipe Barbosa - NLW6",
-    "description": "API criado na trilha de Node da Rocketseat - NLW6",
+    "title": "Alex Felipe Barbosa - NLW Valoriza",
+    "description": "API criado na trilha de Node.js da Rocketseat - NLW Valoriza - Sistema que permite cadastrar elogios/criticas para os usuarios.",
     "version": "1.0.0",
     "contact": {
       "email": "alex@alexbarbosa.info",
       "site": "www.alexbarbosa.info"
+    }
+  },
+  "paths": {
+    "/login": {
+      "post": {
+        "tags": ["Login"],
+        "sumary": "Create Token for login",
+        "description": "Create Token for login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "alex@alex.com.br",
+                  "password": "1234"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": ["User"],
+        "sumary": "Create User",
+        "description": "Create new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "admin": {
+                    "type": "boolean"
+                  }
+                },
+                "example": {
+                  "name": "Alex Felipe Barbosa",
+                  "email": "alex@alex.com.br",
+                  "password": "1234",
+                  "admin": true
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": ["User"],
+        "sumary": "List Users",
+        "description": "List Users",
+        "security": [{
+          "Bearer": []
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "components": {
+        "securitySchemes": {
+          "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          }
+        }
+      }
+    },
+    "/tags": {
+      "post": {
+        "tags": ["Tag"],
+        "sumary": "Create Tags",
+        "description": "Create new Tag",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Atencioso"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Tag"],
+        "sumary": "List Tags",
+        "description": "List Tags",
+        "security": [{
+          "Bearer": []
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/compliments": {
+      "post": {
+        "tags": ["Compliments"],
+        "sumary": "Create Compliments",
+        "description": "Create Compliments",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tag_id": {
+                    "type": "string"
+                  },
+                  "user_receiver": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "tag_id": "aa6d7201-4d30-4734-b498-255872e84611",
+                  "user_receiver": "2c59741b-8623-4d89-b7d0-3d1f7f9a92b2",
+                  "message": "atencioso"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/compliments/receive": {
+      "get": {
+        "tags": ["User Compliments Receive"],
+        "sumary": "List User Compliments Receive",
+        "description": "List User Compliments Receive",
+        "security": [{
+          "Bearer": []
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/users/compliments/send": {
+      "get": {
+        "tags": ["User Compliments Send"],
+        "sumary": "List User Compliments Send",
+        "description": "List User Compliments Send",
+        "security": [{
+          "Bearer": []
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
     }
   }
 }
